@@ -1,9 +1,10 @@
 const URL = 'https://icanhazdadjoke.com/'
 
-fetch(URL, {
+// Promises
+const dataFetcher = fetch(URL, {
   headers: {
     Accept: 'application/json',
   },
 })
   .then(res => res.json())
-  .then(data => console.log(data))
+  .then(data => document.querySelector('main cite').textContent = data.joke)
