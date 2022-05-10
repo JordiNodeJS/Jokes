@@ -1,8 +1,16 @@
+body{
+  background-image: url('https://www.denofgeek.com/wp-content/uploads/2016/07/can_we_take_a_joke_0.png?fit=896%2C739');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 main {
   display: grid;
   justify-content: center;
   align-content: center;
+  background-color: #ededed;
+  padding: 3rem;
+  border-radius: 3rem;
 }
 cite {
   margin-bottom: 2rem;
