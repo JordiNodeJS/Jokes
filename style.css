@@ -1,9 +1,14 @@
-body {
-    background-color: black;
-    color: wheat;
-}
+
 main {
-    display: grid;
-    justify-content: center;
-    align-content: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+cite {
+  margin-bottom: 2rem;
+  width: 400px;
+}
+.button{
+  display: flex;
+  justify-content: flex-end;
 }

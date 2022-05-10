@@ -11,3 +11,4 @@ const fetcher = async () => {
 }
 
 fetcher()
+document.querySelector('.more-jokes').addEventListener('click', fetcher)
