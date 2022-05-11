@@ -1,5 +1,5 @@
 const URL = 'https://icanhazdadjoke.com/'
-
+const URL_CHUCK = 'https://api.chucknorris.io/jokes/random'
 const mainCite = document.querySelector('main cite')
 
 // fetching joke
@@ -13,10 +13,18 @@ const jokeFetcher = async () => {
   mainCite.textContent = data.joke
   mainCite.id = data.id
 }
+// fetching joke Chuck Norris
+const chuckFetcher = async () => {
+  const res = await fetch(URL_CHUCK)
+  const data = await res.json()
+  mainCite.textContent = data.value
+}
 
 // injecting joke to DOM
 jokeFetcher()
-document.querySelector('main button').addEventListener('click', jokeFetcher)
+document.querySelector('main button')
+.addEventListener('click',
+() => ( Math.floor(Math.random() * 2) === 0 ) ? jokeFetcher() : chuckFetcher())
 
 // data jokes recollection from radio button poll
 const reportJokes = []
