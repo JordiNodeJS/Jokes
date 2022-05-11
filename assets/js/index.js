@@ -18,6 +18,7 @@ const chuckFetcher = async () => {
   const res = await fetch(URL_CHUCK)
   const data = await res.json()
   mainCite.textContent = data.value
+  mainCite.id = data.id
 }
 
 // injecting joke to DOM
@@ -36,6 +37,7 @@ for (const poll of polls) {
     if (reportJokes.length > 0) {
      reportJokes.find((joke) => {
         if (joke.id == mainCite.id) reportJokes.pop()
+        poll.checked = false
       })
     }
 
@@ -45,6 +47,7 @@ for (const poll of polls) {
       score: poll.value,
       date: new Date().toISOString(),
     })
+    poll.checked = false
     console.log('checked', reportJokes)
   })
 }
