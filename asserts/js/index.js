@@ -12,3 +12,11 @@ const fetcher = async () => {
 
 fetcher()
 document.querySelector('.more-jokes').addEventListener('click', fetcher)
+
+const reportAcudits = []
+
+// const reportAcudit = {
+//   joke,
+//   score,
+//   data,
+// }

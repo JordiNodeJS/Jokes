@@ -2,14 +2,41 @@
 <html lang="es">
     <title>Jokes' API</title>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="botton.css">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asserts/css/botton.min.css">
+    <link rel="stylesheet" href="asserts/css/style.css">
+    <script defer src="asserts/js/index.js"></script>
 </head>
 <body>
     <main>
         <cite>A joke here</cite>
+
+        <!--  buttons -->
+        <section>
+            <h2>How's this joke?</h2>
+            <form>
+              <fieldset>
+                <input name="animals" type="radio" value="bad" id="bad">
+                <label for="bad">Bad</label>
+                <span class="emoticon">😕</span>
+              </fieldset>
+              <fieldset>
+                <input name="animals" type="radio" value="normal" id="normal">
+                <label for="normal">mmg</label>
+                <span class="emoticon">🤨</span>
+              </fieldset>
+              <fieldset>
+                <input name="animals" type="radio" value="good" id="good">
+                <label for="good">Good</label>
+                <span class="emoticon">😂</span>
+              </fieldset>
+
+            </form>
+          </section>
+        </div>
+
+
+
         <button class="more-jokes" type="button">Next bad joke</button>
     </main>
 </body>

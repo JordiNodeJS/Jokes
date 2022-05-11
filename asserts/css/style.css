@@ -8,15 +8,20 @@ main {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-color: #ededed;
+  background-color: white;
   padding: 3rem;
   border-radius: 3rem;
 }
 cite {
   margin-bottom: 2rem;
-  width: 400px;
+  width: 80%;
+  font-size: 2rem;
 }
 .button{
   display: flex;
   justify-content: flex-end;
+}
+
+h2 {
+  margin-bottom: 6rem;
 }

@@ -1,0 +1,175 @@
+
+// ---------------------------
+$bg: #fff;
+$text: #382b22;
+$light-pink: #fff0f0;
+$pink: #ffe9e9;
+$dark-pink: #f9c4d2;
+$pink-border: #b18597;
+$pink-shadow: #ffe3e2;
+html {
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'open sans', helvetica, sans-serif;
+    
+    @media(min-width: 800px){
+    font-size: 14px;
+    }
+    
+    @media(min-width: 900px){
+    font-size: 16px;
+    }
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  header{
+    text-align: center;
+    height: 10vh;
+  }
+  
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+    padding: 2em;
+    width: 100%;
+  
+  }
+  
+  section{
+    flex-direction: row;
+    background: $pink;
+    padding: 1em 2em 1em 2em;
+    margin: 5%; 
+    text-align: center;
+    box-shadow: 0 0.2em 0.45em 0.1em rgba($pink-border, 0.1);
+    border-radius: .5em;
+    width: 90%;
+    max-width: 50em;
+    
+    @media(min-width: 1300px){
+      flex-direction: column;
+    }
+  }
+  
+  h1{
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+  
+  h2{
+    margin-bottom: 3rem;
+    font-weight: 400;
+  }
+  
+  form{
+    max-width: 40em; 
+    width: 100%;
+    margin: auto auto 2em auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(1rem, 10rem));
+    grid-gap: 1rem;
+  }
+  
+  fieldset{
+    padding: 0;
+    border: 0;
+    width: 100%;
+    position: relative;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr;
+
+  }
+  
+  
+  // ---------------------------
+  // ---------------------------
+  //
+  // This is where the actual radio button animation stuff is styled
+  //
+  // ---------------------------
+  // ---------------------------
+  
+  label{
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    background: #E8E8E8;
+    text-align: center;
+    padding: 1em;
+    cursor: pointer;
+    width: 100%;
+    border-radius: .5rem;
+    border: 1px solid $pink-border;
+    position: relative;
+    z-index: 1;
+  }
+  
+  label:hover{
+    background-color: $light-pink;
+  }
+  
+  input[type="radio"]{
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  input[type="radio"]:checked{
+    ~ label{
+      background: #f9c4d2;
+      color: $bg;
+      box-shadow: 0 0.2em 0.45em 0.1em rgba($pink-border, 0.4);
+      transform: scale(1.25);
+      animation: checked 200ms 1;
+      border: 1px solid darken($dark-pink, 10%);
+      position: relative;
+
+      z-index: 5;
+    }
+    
+    ~ .emoticon{
+      top: -4.75rem;
+      transition: all 200ms ease-in-out;
+      z-index: 0;
+      font-size: 3rem;
+      
+    }
+  } 
+  
+  @keyframes checked {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.25);
+    }
+  }
+  
+  // ---------------------------
+  // ---------------------------
+  //
+  // Styling the emoji
+  //
+  // ---------------------------
+  // ---------------------------
+  
+  .emoticon{
+    margin: auto;
+    grid-row: span 2 / 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    transition: all 200ms ease-in-out;
+    font-size: 2rem;
+    
+    //Chrome needs a margin-left: -50% too for some reason. Working on that.
+  }
