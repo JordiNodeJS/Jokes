@@ -1,8 +1,9 @@
 const URL = 'https://icanhazdadjoke.com/'
+
 const mainCite = document.querySelector('main cite')
 
 // fetching joke
-const fetcher = async () => {
+const jokeFetcher = async () => {
   const res = await fetch(URL, {
     headers: {
       Accept: 'application/json',
@@ -14,8 +15,8 @@ const fetcher = async () => {
 }
 
 // injecting joke to DOM
-fetcher()
-document.querySelector('main button').addEventListener('click', fetcher)
+jokeFetcher()
+document.querySelector('main button').addEventListener('click', jokeFetcher)
 
 // data jokes recollection from radio button poll
 const reportJokes = []
@@ -39,3 +40,25 @@ for (const poll of polls) {
     console.log('checked', reportJokes)
   })
 }
+
+// weather fetching
+const API_KEY = '312b8589ef615acb614ad468b8a4d555'
+const BASE_WEATHER = 'https://api.openweathermap.org/data/2.5/weather'
+let city = 'Barcelona'
+// TODO: dinamically create a form to add a new city
+const URL_WEATHER = `${BASE_WEATHER}?q=${city}&lang=es&units=metric&appid=${API_KEY}`
+
+const weatherFetcher = async () => {
+  const res = await fetch(URL_WEATHER)
+  const data = await res.json()
+  console.log(data.weather[0].description, data.main) // checking if everything is ok
+  // document.querySelector('main .weather').textContent = data.weather[0].description
+  document.querySelector('main .weather')
+  .innerHTML = `<img 
+   src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"
+   alt="${data.weather[0].description}"
+   title="${data.weather[0].description}" />
+   ${data.main.temp} °C <br /> ${data.name}`
+}
+
+weatherFetcher()

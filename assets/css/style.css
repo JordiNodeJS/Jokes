@@ -28,3 +28,9 @@ cite {
 h2{
   margin-bottom: 6rem;
 }
+.weather {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  font-family: 'Quicksand', sans-serif;
+}
