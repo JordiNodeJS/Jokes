@@ -1,7 +1,8 @@
 body{
-  background-image: url('https://www.denofgeek.com/wp-content/uploads/2016/07/can_we_take_a_joke_0.png?fit=896%2C739');
+  background-image: url('../img/pink_clouds.jpg'), linear-gradient(#eb01a5, pink);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center bottom;
 }
 
 main {
@@ -10,18 +11,20 @@ main {
   align-content: center;
   background-color: white;
   padding: 3rem;
+  margin: 2rem;
   border-radius: 3rem;
 }
 cite {
   margin-bottom: 2rem;
-  width: 80%;
-  font-size: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Quicksand', sans-serif;
 }
 .button{
   display: flex;
   justify-content: flex-end;
 }
 
-h2 {
+h2{
   margin-bottom: 6rem;
 }

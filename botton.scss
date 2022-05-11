@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 $bg: #fff;
 $text: #382b22;
 $light-pink: #fff0f0;
@@ -14,7 +14,19 @@ $pink-shadow: #ffe3e2;
     box-sizing: border-box;
   }
 }
-
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'open sans', helvetica, sans-serif;
+  
+  @media(min-width: 800px){
+  font-size: 14px;
+  }
+  
+  @media(min-width: 900px){
+  font-size: 16px;
+  }
+}
 body {
   font-family: 'Rubik', sans-serif;
   font-size: 1rem;
@@ -81,21 +93,9 @@ button {
   }
 }
 
- 
+// button radius 
 
-html {
-  box-sizing: border-box;
-  font-size: 20px;
-  font-family: 'open sans', helvetica, sans-serif;
-  
-  @media(min-width: 800px){
-  font-size: 14px;
-  }
-  
-  @media(min-width: 900px){
-  font-size: 16px;
-  }
-}
+
 
 header{
   text-align: center;
@@ -116,12 +116,12 @@ header{
 section{
   flex-direction: row;
   background: $pink;
-  padding: 1em 2em 1em 2em;
-  margin: 5%; 
+  // padding: 1em 2em 1em 2em;
+  margin: 5% 0 5% 0; 
   text-align: center;
   box-shadow: 0 0.2em 0.45em 0.1em rgba($pink-border, 0.1);
   border-radius: .5em;
-  width: 90%;
+  width: 100%;
   max-width: 50em;
   
   @media(min-width: 1300px){
@@ -144,7 +144,7 @@ form{
   width: 100%;
   margin: auto auto 2em auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(1rem, 10rem));
+  grid-template-columns: repeat(3, minmax(1rem, 15rem));
   grid-gap: 1rem;
 }
 
