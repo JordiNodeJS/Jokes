@@ -12,13 +12,18 @@ const jokeFetcher = async () => {
   const data = await res.json()
   mainCite.textContent = data.joke
   mainCite.id = data.id
+  
+  if (document.querySelector('main input[type="radio"]:checked') !== null )
+    document.querySelector('main input[type="radio"]:checked').checked = false
+
 }
 // fetching joke Chuck Norris
 const chuckFetcher = async () => {
   const res = await fetch(URL_CHUCK)
   const data = await res.json()
   mainCite.textContent = data.value
-  mainCite.id = data.id
+  if (document.querySelector('main input[type="radio"]:checked') != null )
+    document.querySelector('main input[type="radio"]:checked').checked = false
 }
 
 // injecting joke to DOM
@@ -34,10 +39,11 @@ const polls = document.querySelectorAll('fieldset input[type="radio"]')
 
 for (const poll of polls) {
   poll.addEventListener('change', () => {
+   
     if (reportJokes.length > 0) {
      reportJokes.find((joke) => {
         if (joke.id == mainCite.id) reportJokes.pop()
-        poll.checked = false
+        
       })
     }
 
@@ -47,7 +53,7 @@ for (const poll of polls) {
       score: poll.value,
       date: new Date().toISOString(),
     })
-    poll.checked = false
+  
     console.log('checked', reportJokes)
   })
 }
