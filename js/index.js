@@ -1,30 +1,44 @@
-const URL = 'https://icanhazdadjoke.com/'
+const URL = 'https://icanhazdadjoke.com'
 const URL_CHUCK = 'https://api.chucknorris.io/jokes/random'
 const mainCite = document.querySelector('main cite')
 
 // fetching joke
 const jokeFetcher = async () => {
-  const res = await fetch(URL, {
-    headers: {
-      Accept: 'application/json',
-    },
-  })
-  const data = await res.json()
-  mainCite.textContent = data.joke
-  mainCite.id = data.id
-  
-  if (document.querySelector('main input[type="radio"]:checked') !== null )
-    document.querySelector('main input[type="radio"]:checked').checked = false
-
+  try {
+      const res = await fetch(URL, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      const data = await res.json()
+      mainCite.textContent = data.joke
+      mainCite.id = data.id
+      
+      if (document.querySelector('main input[type="radio"]:checked') !== null )
+        document.querySelector('main input[type="radio"]:checked').checked = false
+      } catch (error) {
+         console.log('No hemos podido hacer el fetch del chiste 😰',error)
+  }
+    
 }
+
+  
+
+
 // fetching joke Chuck Norris
 const chuckFetcher = async () => {
-  const res = await fetch(URL_CHUCK)
-  const data = await res.json()
-  mainCite.textContent = data.value
-  if (document.querySelector('main input[type="radio"]:checked') != null )
-    document.querySelector('main input[type="radio"]:checked').checked = false
+  try {
+    const res = await fetch(URL_CHUCK)
+    const data = await res.json()
+    mainCite.textContent = data.value
+    if (document.querySelector('main input[type="radio"]:checked') != null )
+      document.querySelector('main input[type="radio"]:checked').checked = false
+  } catch (error) {
+    console.log(error)
+  }
+    
 }
+
 
 // injecting joke to DOM
 jokeFetcher()
@@ -66,7 +80,8 @@ let city = 'Barcelona'
 const URL_WEATHER = `${BASE_WEATHER}?q=${city}&lang=es&units=metric&appid=${API_KEY}`
 
 const weatherFetcher = async () => {
-  const res = await fetch(URL_WEATHER)
+  try {
+      const res = await fetch(URL_WEATHER)
   const data = await res.json()
   console.log(data.weather[0].description, data.main) // checking if everything is ok
   // document.querySelector('main .weather').textContent = data.weather[0].description
@@ -76,6 +91,7 @@ const weatherFetcher = async () => {
    alt="${data.weather[0].description}"
    title="${data.weather[0].description}" />
    ${data.main.temp} °C <br /> ${data.name}`
+  } catch (error) { console.log(error) }
 }
 
 weatherFetcher()
