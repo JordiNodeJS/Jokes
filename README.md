@@ -1,2 +1,2 @@
-# Sprint-5_Jokes
+# Jokes
 [Live demo]( https://jordinodejs.github.io/Sprint-5_Jokes/)
